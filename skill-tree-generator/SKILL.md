@@ -1,6 +1,6 @@
 ---
 name: skill-tree-generator
-description: "将当前所有已安装的Skill以工作树形式输出到 C:/Users/12084/Desktop/阿巴阿巴工作区/Skill工作树.md 文件中，并展示给用户。触发条件：用户要求查看skill工作树、skill列表、所有skill、skill总览。"
+description: "将当前所有已安装的 Skill 以工作树形式输出到用户指定位置或默认桌面文件，并展示给用户。触发条件：用户要求查看 skill 工作树、skill 列表、所有 skill、skill 总览。"
 ---
 
 # Skill Tree Generator
@@ -8,11 +8,12 @@ description: "将当前所有已安装的Skill以工作树形式输出到 C:/Use
 将当前OpenClaw已安装的所有Skill以工作树形式输出。
 
 ## 工作路径
-- 输出文件：`C:/Users/12084/Desktop/阿巴阿巴工作区/Skill工作树.md`
+- Skill 目录：默认使用 `$HOME/.openclaw/workspace/skills`，也可按用户实际配置调整。
+- 输出文件：优先使用用户指定位置；未指定时使用 `$HOME/Desktop/Skill工作树.md`。
 
 ## 操作步骤
 
-1. 读取 `C:/Users/12084/.openclaw/workspace/skills` 下所有目录
+1. 读取用户实际配置的 OpenClaw Skills 目录；未特别配置时读取 `$HOME/.openclaw/workspace/skills` 下所有目录
 2. 读取每个skill的 `SKILL.md` 中的 `description` 字段
 3. 按类别分组整理
 4. 生成Markdown格式的工作树

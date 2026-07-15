@@ -1,44 +1,71 @@
-# 良哥 Skill 大礼包
+[中文](README.md) | [English](README_EN.md)
 
-> 良的 OpenClaw 技能库整理 | 2026-04-01
+# 良的 Skill 大礼包
 
-本仓库包含良哥长期积累的 OpenClaw Skills 合集，覆盖 AI 开发效率、记忆系统、自动化工具、前端设计等多个领域。
+> 一个面向 OpenClaw 与智能体工作流的个人 Skill 合集，汇集开发效率、记忆、研究、自动化、文档处理和前端设计等方向的工具。
 
----
+## 仓库定位
 
-## 📁 Skill 目录（共 XX 个）
+本仓库是技能集合，不是一个具有统一安装方式、质量标准或授权协议的单一软件产品。顶层目录包含 100 多个 Skill 或相关项目；各目录可能采用不同的结构、依赖、配置方式和上游版本。
 
-详见 `良哥skill目录.docx`
+本次只维护顶层中英文说明。子目录内的 `README`、`SKILL.md` 和其他文档保留原语言及上游内容，不进行批量翻译或改写。
 
----
+## 内容与来源
 
-## 📦 来源说明
+现有内容主要来自以下渠道：
 
 | 来源 | 说明 |
-|---|---|
-| `workspace/skills` | 良哥自装 / clawhub 安装的 Skills |
-| `.agents/skills` | Superpowers 项目相关 Skills |
-| 内置 | OpenClaw npm 内置 Skills |
+| --- | --- |
+| 个人安装与整理 | 放入 OpenClaw workspace 的自用或经 ClawHub 安装的 Skills。 |
+| Superpowers / agent workflows | 与智能体开发流程相关的 Skills。 |
+| OpenClaw 内置或生态内容 | 从 OpenClaw npm 包或其生态整理的 Skills。 |
+| 其他第三方项目 | 部分目录保留各自的说明、元数据或许可证文件。 |
 
----
+这些来源信息目前没有逐目录完成统一审计。根目录的 [`良哥skill目录.docx`](良哥skill目录.docx) 是已有清单资料，但可能不代表仓库当前状态；实际内容应以 Git 目录树为准。
 
-## 🚀 使用方式
+## 使用方式
 
-将对应 Skill 文件夹复制到你的 OpenClaw Skills 目录即可：
+先进入目标目录，完整阅读其中的 `SKILL.md`、`README`、脚本和依赖说明，确认来源与权限范围后，再复制到本机 OpenClaw Skills 目录。
 
-```powershell
-# 默认路径
-cp -r <skill-name> ~/.openclaw/workspace/skills/
+macOS / Linux 示例：
+
+```bash
+cp -R <skill-name> ~/.openclaw/workspace/skills/
 ```
 
----
+Windows PowerShell 示例：
 
-## ⚠️ 注意事项
+```powershell
+Copy-Item -Recurse .\<skill-name> "$HOME\.openclaw\workspace\skills\"
+```
 
-- 部分 Skills 需要额外配置 API Key（如 Tavily、Web Search 等）
-- 嵌入的 git 仓库（claude-mem、web-access）已单独处理
-- 本包不含 API Key，请自行配置
+这只是常见目录示例；实际位置应以你的 OpenClaw 配置为准。不要一次性安装整个仓库，也不要在未审查的情况下运行脚本。
 
----
+## 安全审查
 
-*整理时间：2026-04-01*
+Skill 可能要求执行本机命令、访问文件、调用网络、控制浏览器或连接第三方服务。使用前至少检查：
+
+- `SKILL.md` 中声明的行为、工具和权限是否符合预期。
+- 脚本、依赖和配置文件是否包含危险操作、外部下载或不明地址。
+- 是否需要 API key、token、账号或其他凭证；凭证应放在本机环境或专用密钥存储中，不能提交到仓库。
+- Skill 的来源、版本和许可证是否允许你的使用或再分发方式。
+- 首次运行是否可以在隔离环境或低权限账户中验证。
+
+仓库收录不等于安全背书，也不表示所有内容都已通过代码审计。涉及文件删除、账号操作、消息发送、付款或公开发布的 Skill，应逐项人工确认。
+
+## 第三方授权
+
+本仓库当前没有统一的仓库级许可证，不能用一份许可证覆盖所有子目录。部分第三方目录自带独立许可证或来源说明，另一些目录的授权状态可能不完整。使用、修改或转发任何 Skill 前，请优先遵守对应子目录及其上游项目的条款；没有明确许可证时，不要默认获得复制、修改或再分发授权。
+
+## Gitlink 限制
+
+`claude-mem` 和 `web-access` 在 Git 中是 gitlink 记录，但仓库当前没有 `.gitmodules` 映射。因此普通 `git clone` 不会自动取得这两个目录的实际内容，`git submodule update` 也无法仅凭本仓库恢复它们。
+
+如需使用这两个项目，应先确认其可信上游地址和对应提交，再单独获取。不要把空目录或不可解析的 gitlink 当作完整 Skill。
+
+## 维护建议
+
+- 新增或更新 Skill 时记录来源链接、版本或提交号、许可证和审查日期。
+- 将个人修改与原始上游内容分开说明，方便后续升级和追溯。
+- 定期检查失效依赖、危险权限和已停止维护的项目。
+- 不提交 API key、token、密码、聊天记录或其他私密数据。
